@@ -1,0 +1,2 @@
+# fastbootfake
+fake fastboot
