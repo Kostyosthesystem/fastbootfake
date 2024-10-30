@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image</title>
+    <style>
+        body {
+            margin: 0;
+            transition: background-color 0.5s;
+        }
+        #image {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+<img id="image" src="" alt="Image">
+
+<script>
+    setTimeout(() => {
+        document.body.style.backgroundColor = 'black';
+        
+        let userAgent = navigator.userAgent.toLowerCase();
+        let imgSrc;
+
+        if (userAgent.includes('xiaomi')) {
+            imgSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkvQl4dhr-THCaFFsEp-x2TtkaqZkebQjb-Q&s';
+        } else if (userAgent.includes('samsung')) {
+            imgSrc = 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Fastboot.png';
+        } else if (userAgent.includes('huawei') || userAgent.includes('honor')) {
+            imgSrc = 'https://guide-images.cdn.ifixit.com/igi/KXWAUHmTssvDZCZC.medium';
+        } else {
+            imgSrc = ''; // Пустое изображение для других устройств
+        }
+
+        const imageElement = document.getElementById('image');
+        imageElement.src = imgSrc;
+        imageElement.style.display = 'block';
+    }, 4000);
+</script>
+
+</body>
+</html>
